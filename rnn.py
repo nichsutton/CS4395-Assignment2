@@ -37,14 +37,15 @@ class RNN(nn.Module):
         # [to fill] obtain hidden layer representation (https://pytorch.org/docs/stable/generated/torch.nn.RNN.html)
         _, hidden = self.rnn(inputs)
 
-        # [to fill] obtain output layer representations
-        output_layer = self.W(hidden)
-
         # [to fill] sum over output 
-        output_sum = torch.sum(output_layer, dim=0)
+        output_sum = torch.sum(_, dim=0)
+
+        # [to fill] obtain output layer representations
+        output_layer = self.W(output_sum)
+
 
         # [to fill] obtain probability dist.
-        predicted_vector = self.softmax(output_sum)
+        predicted_vector = self.softmax(output_layer)
 
         return predicted_vector
 
